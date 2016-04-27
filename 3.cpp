@@ -96,6 +96,50 @@ node* deleteNode(node *root, int val)
 	return root;
 }
 
+//Assuming it is always present.
+node* findNode(node *root, int val)
+{
+	if(root->val == val)
+		return root;
+
+	if(val < root->val)
+		return findNode(root->left, val);
+	else
+		return findNode(root->right, val);
+}
+
+//Assume it is always present.
+int inorderSuccessor(node *root, int val)
+{
+	node *p = findNode(root, val);
+
+	if(p->right)
+	{
+		p = p->right;
+
+		while(p->left)
+			p = p->left;
+
+		return p->val;
+	}
+
+	node *result = root;
+	node *curr = root;
+
+	while(curr != p)
+	{
+		if(p->val < curr->val)
+		{
+			result = curr;
+			curr = curr->left;
+		}
+		else
+			curr = curr->right;
+	}
+
+	return result->val;
+}
+
 int main(void)
 {
 	node *root;
@@ -118,6 +162,9 @@ int main(void)
 	cout << "After Deletion: ";
 	traverse(root);
 	cout << endl;
+
+	cout << "Inorder Successor of 7: ";
+	cout << inorderSuccessor(root, 7) << endl;
 	
 	return 0;
 }
