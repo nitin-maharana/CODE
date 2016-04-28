@@ -1,3 +1,8 @@
+/*
+ * Written by Nitin Kumar Maharana
+ * nitin.maharana@gmail.com
+ */
+
 #include <iostream>
 #include <string>
 #include <vector>
