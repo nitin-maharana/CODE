@@ -34,7 +34,7 @@ int findFirstOccurance(vector<int>& input, int find)
 			high = mid-1;
 	}
 
-	return result;
+	return result+1;
 }
 
 int findLastOccurance(vector<int>& input, int find)
@@ -61,7 +61,17 @@ int findLastOccurance(vector<int>& input, int find)
 			high = mid-1;
 	}
 
-	return result;
+	return result+1;
+}
+
+void print(vector<int>& input)
+{
+	cout << endl << "Input : ";
+
+	for(int i : input)
+		cout << i << " ";
+
+	cout << endl << endl;
 }
 
 int main(void)
@@ -75,9 +85,10 @@ int main(void)
 	input.push_back(3);
 	input.push_back(5);
 	
+	print(input);
 
-	cout << "First Occurance : " << findFirstOccurance(input, 3) << endl;
-	cout << "Last Occurance : " << findLastOccurance(input, 3) << endl;
+	cout << "First Occurance of 3 : " << findFirstOccurance(input, 3) << endl;
+	cout << "Last Occurance of 3 : " << findLastOccurance(input, 3) << endl << endl;
 
 	return 0;
 }
