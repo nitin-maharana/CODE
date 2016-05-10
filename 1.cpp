@@ -23,7 +23,7 @@ class Stack
 
 		Stack()
 		{
-			top = NULL;
+			top = nullptr;
 		}
 
 		void push(T item)
@@ -58,7 +58,7 @@ class Stack
 
 		bool empty(void)
 		{
-			return top == NULL ? true : false;
+			return top == nullptr ? true : false;
 		}
 };
 
